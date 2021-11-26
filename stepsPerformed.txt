@@ -5,3 +5,6 @@ move .gitignore to Shopper -> ignore all node_modules
 download bootstrap.min.css from 'bootswatch.com' -> import in index.js
 download font awesome cdn link from 'cdnjs.com' -> paste it in index.html
 
+
+
+npm install react-router-dom react-router-bootstrap
