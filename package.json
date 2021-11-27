@@ -2,7 +2,8 @@
   "name": "shopper",
   "version": "1.0.0",
   "description": "MERN Shopper App",
-  "main": "backend/server.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",
@@ -13,6 +14,7 @@
   "author": "Vikash Kumar",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1"
   },
   "devDependencies": {

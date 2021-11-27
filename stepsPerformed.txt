@@ -9,7 +9,7 @@ setting up Proxy in frontend package.json
 
 root level ->
 npm init -y
-npm install express 
+npm install express dotenv
 nodemon concurrently(-dev)
 
 
@@ -20,3 +20,4 @@ npm install react-router-dom react-router-bootstrap
 
 
 commonJS is used at the back end. ES at front end
+commonJS  to ES :-> 1) include "type":"module" in package.json 2) add extension .js when importing file 
