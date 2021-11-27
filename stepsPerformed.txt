@@ -4,7 +4,19 @@ initialize git inside Shopper
 move .gitignore to Shopper -> ignore all node_modules
 download bootstrap.min.css from 'bootswatch.com' -> import in index.js
 download font awesome cdn link from 'cdnjs.com' -> paste it in index.html
+setting up Proxy in frontend package.json
 
+
+root level ->
+npm init -y
+npm install express 
+nodemon concurrently(-dev)
 
 
 npm install react-router-dom react-router-bootstrap
+
+
+
+
+
+commonJS is used at the back end. ES at front end
