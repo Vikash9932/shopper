@@ -11,7 +11,7 @@ root level ->
 npm init -y
 npm install express dotenv
 nodemon concurrently(-dev)
-
+express-async-handler
 
 npm install react-router-dom react-router-bootstrap
 
