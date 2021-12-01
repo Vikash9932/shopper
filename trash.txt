@@ -1,0 +1,12 @@
+app.use((req, res, next) => {
+  console.log(req.originalUrl);
+  next();
+});
+
+app.get('/api/products', (req, res) => {
+  res.json(products);
+});
+
+app.get('/api/products/:id', (req, res) => {
+  res.json(products.find((p) => p._id === req.params.id));
+});
