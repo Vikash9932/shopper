@@ -14,7 +14,7 @@ nodemon concurrently(-dev)
 express-async-handler
 
 npm install react-router-dom react-router-bootstrap
-
+redux react-redux redux-thunk redux-devtools-extension
 
 
 
