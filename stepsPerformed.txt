@@ -21,3 +21,6 @@ redux react-redux redux-thunk redux-devtools-extension
 
 commonJS is used at the back end. ES at front end
 commonJS  to ES :-> 1) include "type":"module" in package.json 2) add extension .js when importing file 
+
+
+ <Route path='/cart/:id?' element={<CartScreen />} />  ::::---->>>>>> meaning of question mark (?) is the id property is optional

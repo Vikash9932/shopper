@@ -1,23 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col, Image, Card, ListGroup, Button } from 'react-bootstrap';
+import {
+  Row,
+  Col,
+  Image,
+  Card,
+  ListGroup,
+  Button,
+  Form,
+} from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import Rating from '../components/Rating';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { listProductDetails } from '../actions/productActions';
 
-const ProductScreen = () => {
-  const id = useParams();
-
+const ProductScreen = (props) => {
+  const [qty, setQty] = useState(1);
+  const params = useParams();
   const dispatch = useDispatch();
 
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
 
   useEffect(() => {
-    dispatch(listProductDetails(id.id));
-  }, [dispatch, id.id]);
+    dispatch(listProductDetails(params.id));
+  }, [dispatch, params]);
+
   return (
     <>
       <Link className='btn btn-light my-3' to='/'>
@@ -69,20 +78,41 @@ const ProductScreen = () => {
                     </Col>
                   </Row>
                 </ListGroup.Item>
+                {product.countInStock > 0 && (
+                  <ListGroup.Item>
+                    <Row>
+                      <Col>Qty</Col>
+                      <Col>
+                        <Form.Control
+                          as='select'
+                          value={qty}
+                          onChange={(e) => setQty(e.target.value)}
+                        >
+                          {[...Array(product.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
+                        </Form.Control>
+                      </Col>
+                    </Row>
+                  </ListGroup.Item>
+                )}
                 <ListGroup.Item>
-                  <Row>
-                    <Col>Qty</Col>
-                    <Col>1</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Button
-                    className='btn-block '
-                    type='button'
-                    disable={product.countInStock > 0 ? 'false' : 'true'}
-                  >
-                    Add to Cart
-                  </Button>
+                  {product.countInStock > 0 ? (
+                    <Button>
+                      <Link
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                        className='btn-block '
+                        to={`/cart/${params.id}?qty=${qty}`}
+                        disable={product.countInStock > 0 ? 'false' : 'true'}
+                      >
+                        Add to Cart
+                      </Link>
+                    </Button>
+                  ) : (
+                    <Button disable='true'>Add to Cart </Button>
+                  )}
                 </ListGroup.Item>
               </ListGroup>
             </Card>
