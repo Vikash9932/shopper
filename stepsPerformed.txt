@@ -5,7 +5,7 @@ move .gitignore to Shopper -> ignore all node_modules
 download bootstrap.min.css from 'bootswatch.com' -> import in index.js
 download font awesome cdn link from 'cdnjs.com' -> paste it in index.html
 setting up Proxy in frontend package.json
-
+jwt.io
 
 root level ->
 npm init -y
@@ -16,6 +16,9 @@ express-async-handler
 npm install react-router-dom react-router-bootstrap
 redux react-redux redux-thunk redux-devtools-extension
 
+postman
+set environment variable from postman dynamically
+Navigate to Tests =-> pm.environment.set("TOKEN", pm.response.json().token)
 
 
 
