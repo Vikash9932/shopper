@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Row,
   Col,
@@ -15,6 +15,7 @@ import Message from '../components/Message';
 
 const CartScreen = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const qty = location.search ? Number(location.search.split('=')[1]) : 1;
   const productId = location.pathname ? location.pathname.split('/')[2] : '';
 
@@ -30,7 +31,8 @@ const CartScreen = () => {
   }, [dispatch, productId, qty]);
 
   const checkoutHandler = () => {
-    //history.push('/login?redirect=shipping')
+    console.log('navigate', navigate);
+    navigate('/login?redirect=shipping');
   };
 
   return (
