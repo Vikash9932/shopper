@@ -20,6 +20,12 @@ postman
 set environment variable from postman dynamically
 Navigate to Tests =-> pm.environment.set("TOKEN", pm.response.json().token)
 
+heroku
+install "heroku cli" (package installer)
+> heroku login
+> heroku create <app_name>
+
+
 
 
 commonJS is used at the back end. ES at front end
