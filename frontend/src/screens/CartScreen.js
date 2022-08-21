@@ -21,6 +21,7 @@ const CartScreen = () => {
 
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const userLogin = useSelector((state) => state.userLogin);
 
   const { cartItems } = cart;
 
@@ -31,8 +32,12 @@ const CartScreen = () => {
   }, [dispatch, productId, qty]);
 
   const checkoutHandler = () => {
-    console.log('navigate', navigate);
-    navigate('/login?redirect=shipping');
+    if (userLogin.hasOwnProperty('userInfo')) {
+      navigate('/shipping');
+    } else {
+      navigate('/login');
+    }
+    //history.push('/login?redirect=shipping)
   };
 
   return (
@@ -63,8 +68,7 @@ const CartScreen = () => {
                         dispatch(
                           addToCart(item.product, Number(e.target.value))
                         )
-                      }
-                    >
+                      }>
                       {[...Array(item.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
                           {x + 1}
@@ -76,8 +80,7 @@ const CartScreen = () => {
                     <Button
                       type='button'
                       variant='light'
-                      onClick={() => dispatch(removeFromCart(item.product))}
-                    >
+                      onClick={() => dispatch(removeFromCart(item.product))}>
                       <i className='fas fa-trash'></i>
                     </Button>
                   </Col>
@@ -105,8 +108,7 @@ const CartScreen = () => {
                 type='button'
                 className='btn-block'
                 disabled={cartItems.length === 0}
-                onClick={checkoutHandler}
-              >
+                onClick={checkoutHandler}>
                 Proceed to Checkout
               </Button>
             </ListGroup.Item>
