@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { register } from '../actions/userActions';
-import { FormContainer } from '../components/FormContainer';
+import FormContainer from '../components/FormContainer';
 
 const RegisterScreen = () => {
   const [name, setName] = useState('');
@@ -49,8 +49,7 @@ const RegisterScreen = () => {
             type='name'
             placeholder='Enter name'
             value={name}
-            onChange={(e) => setName(e.target.value)}
-          ></Form.Control>
+            onChange={(e) => setName(e.target.value)}></Form.Control>
         </Form.Group>
         <Form.Group controlId='email'>
           <Form.Label>Email Address</Form.Label>
@@ -58,8 +57,7 @@ const RegisterScreen = () => {
             type='email'
             placeholder='Enter email'
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
+            onChange={(e) => setEmail(e.target.value)}></Form.Control>
         </Form.Group>
         <Form.Group controlId='password'>
           <Form.Label>Password</Form.Label>
@@ -67,8 +65,7 @@ const RegisterScreen = () => {
             type='password'
             placeholder='Enter password'
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
+            onChange={(e) => setPassword(e.target.value)}></Form.Control>
         </Form.Group>
         <Form.Group controlId='confirmPassword'>
           <Form.Label>Confirm Password</Form.Label>
@@ -76,8 +73,7 @@ const RegisterScreen = () => {
             type='password'
             placeholder='Confirm password'
             value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          ></Form.Control>
+            onChange={(e) => setConfirmPassword(e.target.value)}></Form.Control>
         </Form.Group>
 
         <Button type='submit' variant='primary'>

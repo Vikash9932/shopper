@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { login } from '../actions/userActions';
-import { FormContainer } from '../components/FormContainer';
+import FormContainer from '../components/FormContainer';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -40,8 +40,7 @@ const LoginScreen = () => {
             type='email'
             placeholder='Enter email'
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
+            onChange={(e) => setEmail(e.target.value)}></Form.Control>
         </Form.Group>
         <Form.Group controlId='password'>
           <Form.Label>Password</Form.Label>
@@ -49,8 +48,7 @@ const LoginScreen = () => {
             type='password'
             placeholder='Enter password'
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
+            onChange={(e) => setPassword(e.target.value)}></Form.Control>
         </Form.Group>
 
         <Button type='submit' variant='primary'>
